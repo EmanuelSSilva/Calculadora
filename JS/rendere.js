@@ -116,6 +116,7 @@ class Calculator {
      resultaDaOpercao() {
         let operacao = this.textoanterior.innerText.split(" ")[1]
         this.processOperation(operacao)
+        return 
     
 }
     criarJanela() {
@@ -140,6 +141,7 @@ buttons.forEach((btn) => {
             }
     })
 })
+
 
 document.getElementById('historico').addEventListener('click', () => { 
     window.api.receberMsg((event, arg) => { document.getElementById('msg').innerHTML = `${arg} <br>`})
