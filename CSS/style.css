@@ -61,7 +61,7 @@ body{
     cursor: pointer;
 }
 
-buttons-container .number {
+#buttons-container .number {
     background-color: #f3f3f3;
 }
 
@@ -71,9 +71,17 @@ buttons-container .number {
 }
 
 #buttons-container #equal-btn {
-   grid-column: span 2;
+   height: 4em;
    background-color: #75a5cb;
 }
-#buttons-container #equal-btn: :hover {
+#buttons-container #equal-btn:hover {
    background-color: #3a97d8;
+}
+#buttons-container #historico {
+   height: 4em;
+    background-color: #e57373;
+}
+
+#buttons-container #historico:hover {
+   background-color: #b65050;
 }

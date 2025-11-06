@@ -58,6 +58,7 @@ class Calculator {
                 this.limpezaDoEtualEAnterior()
                 break
             case "=":
+                window.api.salvahistorico(`${this.textoanterior.textContent} ${this.textoAtual.textContent}`)
                 this.resultaDaOpercao()
                 break
                 default:
@@ -117,6 +118,10 @@ class Calculator {
         this.processOperation(operacao)
     
 }
+    criarJanela() {
+        window.api.criarJanela()
+}
+
 }
 
     
@@ -134,4 +139,8 @@ buttons.forEach((btn) => {
                 calc.processOperation(value)
             }
     })
+})
+
+document.getElementById('historico').addEventListener('click', () => { 
+    window.api.receberMsg((event, arg) => { document.getElementById('msg').innerHTML = `${arg} <br>`})
 })
