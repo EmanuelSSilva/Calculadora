@@ -1,6 +1,7 @@
-import { app, BrowserWindow, nativeTheme, ipcMain } from 'electron';
+import { app, BrowserWindow, nativeTheme, ipcMain, Menu } from 'electron';
 import { fileURLToPath } from 'url';
 import path from'path';
+import { type } from 'os';
 
 let __filename = fileURLToPath(import.meta.url);
 let __dirname = path.dirname(__filename);
@@ -8,7 +9,7 @@ let __dirname = path.dirname(__filename);
 let janela = null; // Variável para armazenar a janela
 
 function criarJanela() {
-  nativeTheme.themeSource = 'light';
+  nativeTheme.themeSource = 'light';     
   janela = new BrowserWindow({
     width: 800,
     height: 800,
@@ -27,7 +28,19 @@ function criarJanela() {
   janela.webContents.on('did-finish-load', () => { //evento disparado quando a janela termina de carregar
       janela.webContents.setZoomFactor(1.0);
   });
+
+  Menu.setApplicationMenu(Menu.buildFromTemplate(template)) //definindo o menu da aplicação
 }
+
+const template = [
+  {
+    label: 'Arquivo',
+    submenu:[{label: 'Novo',click: () => {criarJanela()}},
+    {type: 'separator'},
+    {label: 'Sair'},
+    {role: 'quit'}]
+  }, {label: 'Novo'},
+]
 
 app.whenReady().then(criarJanela);
 
