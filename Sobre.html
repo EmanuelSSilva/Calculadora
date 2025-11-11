@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre</title>
+</head>
+<body>
+<div id="Sobre">
+qualquer coisa
+</div>
+    <script>
+        document.getElementById("Sobre").innerHTML += 
+        `Versão Node.js: ${process.versions.node}
+        Versão Electron: ${process.versions.electron}
+        Sistema: ${process.platform}
+        Arquitetura: ${process.arch}
+        Chrome: ${process.versions.chrome}`
+    </script>
+</body>
+</html>
