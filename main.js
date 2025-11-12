@@ -29,7 +29,12 @@ function criarJanela() {
     janela.webContents.setZoomFactor(1.0);
   });
 
+ // const menu = Menu.buildFromTemplate(template); //criando o menu a partir do template
+
+
   Menu.setApplicationMenu(Menu.buildFromTemplate(template)) //definindo o menu da aplicação
+
+  janela.webContents.on('context-menu', () => { Menu.popup({ window: janela }); }); //adicionando o menu de contexto (botão direito do mouse)
 }
 
 function criarJanelaSobre() {
